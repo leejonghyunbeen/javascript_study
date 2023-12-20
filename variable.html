@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트-변수1</title>
+</head>
+<body>
+    <button type="button" onclick="order()">밥주세요!</button>
+    <button type="button" onclick="abcResult()">변수 a,b,c의 값은?</button>
+    <script>
+        // 내부스크립트
+        // 1.목표설정 : "밥주세요" 버튼 클릭하면 오늘의 밥, 반찬 출력
+        // 2.절차 정리 : 밥주세요 버튼 클릭 -> 데이터가 출력
+        // 3.필요 데이터 체크 : 버튼,밥,반찬
+        // 4.재사용 필요 체크 : 함수(밥, 반찬)->함수로 만들어 낸다
+        var bowl = '쌀밥';
+        var side = '소고기랑샤브샤브랑편백찜이랑맥주'
+
+        var a;  /* undefined */
+        console.log(a);
+// 이미 var로 변수 생성했으면 같은 값은 bar안써도댐
+        a = 1;
+        console.log(a); /* 1 */
+        a = 2;
+        var b = a;
+        console.log(a); /* 2 */
+        
+        
+        var c = a+b;
+        console.log(b);  /* 2 */
+        
+        console.log(c); /* 2+2=4 */
+
+        function order() {
+            console.log(bowl);
+            console.log(side);
+        }
+        function abcResult() {
+            console.log(a)
+            console.log(b)
+            console.log(c)
+        }
+
+        /* 변수 ox 
+        var 3bowl; x 숫자가 앞에있어서
+        var bowl; 0
+        var var; x 키워드라서
+        var var1; o 추천은안함
+        var %test; x 특수문자
+        var $test; 0 
+        */
+    </script>
+</body>
+</html>

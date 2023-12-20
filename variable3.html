@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수-3</title>
+</head>
+<body>
+    <button type="button" onclick="adultFunc()">인원 수 추가하기</button>
+    <script>
+        // 1.목표 : 인원수 추가하기 버튼을 클릭하면 기본값 성인 1에서 클릭할 때마다 1씩 증가하면서 인원수 추가
+        // 데이터 : 버튼, 기본값(1), 추가값
+        var defaultAdult = 1 /* 기본값 */
+        var plusAdult = 1 /* 추가값 */
+        function adultFunc(){
+            console.log(defaultAdult) 
+            defaultAdult = defaultAdult + plusAdult 
+        }
+    </script>
+</body>
+</html>
