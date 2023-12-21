@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let,const</title>
+</head>
+<body>
+    
+    <script>
+        let name = '홍길동';
+        let age = 20;
+        const bloodType = 'o'
+        let mbti ='entp'
+        let address = '인천시 부평구'
+
+        //홍길동은의 나이는 20살입니다
+        console.log(name+'의 나이는'+age+' 살입니다')
+        // 홍길동은 생일이 지나면 21살입니다
+        // age = age+1
+        age += 1 //복합대입연산자
+        console.log(name+'은 생일이 지나면'+age+'살입니다');
+        // 어제 mbti는 entp입니다.
+        console.log('어제 mbti는 '+mbti+'입니다.');
+        //오늘 홍길동의 bmti는 entj입니다
+        mbti = 'entj'
+        console.log('오늘'+name+'의 mbti는'+mbti+' 입니다.')
+    </script>
+</body>
+</html>

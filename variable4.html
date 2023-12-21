@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트-변수4</title>
+</head>
+<body>
+    
+    <script defer>
+        //변수(저장소)
+        //var 생성변수명;
+        //var 생성변수명 대입연산자 대입값;
+        var a = 1;
+        var b;
+        b = 5;
+        var c = 10;
+        console.log (a,b, c) ;
+        console.log ('c=', c);
+        console.log ('a=', a,'b=',b,'c=',c);    
+        // +=는 연결 연산자
+        console.log ('a='+a+' b='+b+' c='+c);    
+        console.log ( '------------------');
+
+        var d = 'javascript';
+        console.log('d='+d)
+        var d = "js"//var생성 키워드는 변수명을 중복선언했을 때 중복에러를 인식못함,
+        console.log('d='+d)
+        
+        let e = '객체지향언어';
+        console.log ('e='+e)
+        console.log (a+e)
+
+        e = '절차적언어';
+        //let 생성키워드는 변수명 중복선언 시 중복에러를 인식한다.
+        console.log ('e='+e)
+        console.log (b+e)
+
+        console.log('-----------');
+
+        const f= '상수 const는 변하지 않는다'
+        console.log('f='+f);
+
+        // f = 'const2';
+        //상수는 변경하려고 하면 에러가 발생한다.
+        const g='상수는 생성과 대입이 동시에 이루어져야 한다' ;
+        console.log('g='+g)
+    </script>
+</body>
+</html>
