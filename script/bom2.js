@@ -18,3 +18,15 @@ console.log(qa1)
 function naver () {
     console.log(window.location.href='https://naver.com');
 }
+//-------------
+//객체.속성.속성
+//객체,속성.메서드
+window.document.write("테스트 문구")
+document.write("자바스크립트")
+document.write("hello<br>world")
+//----------------------------------------
+// window.open('https://google.com','_blank')
+function func() {
+    window.open('https://google.com','_blank','width=500,height=300')
+    window.open('https://google.com','_blank','width=500,height=300')
+}
