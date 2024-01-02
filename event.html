@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 이벤트처리기</title>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+        .box {
+            display: flex; flex-flow: column nowrap;
+            align-items: center;
+        }
+        .box button {width: 280px;
+            background-color: blueviolet;
+            padding: 10px; font-size: 2.5rem;
+            color: aqua; border-radius: 100px;
+            margin-bottom: 50px;
+        }
+        .box button:hover {opacity: 0.5;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button type="button" id="btn1">click btn1</button>
+        <button type="button" id="btn2">click btn2</button>
+        <button type="button" id="btn3">구글 바로가기</button>
+        <h1>본인인증</h1>
+        <form action="#" method="post">
+            <input type="text" id="text" placeholder="인증번호 입력">
+            <button type="button" id="certied_btn">인증확인</button>
+        </form>
+        <h1>직장인 수입 계산기</h1>
+        <form action="#" method="get" id="pay">
+            <input type="text" id="result1" placeholder="이번 달 월급 입력">
+            <input type="text" id="result2" placeholder="이번 달 보너스 입력">
+            <button type="button" id="answer_btn">총 수입 보기</button>
+        </form>
+        <h1>이자 100원 주는 자바스크립트</h1>
+        <form action="#" method="get" id="bank">
+            <input type="text" id="bank_input" placeholder="입금액">
+            <input type="text" id="bank_total" placeholder="총잔액" readonly>
+            <button type="button" id="bank_btn">돈줘</button>
+        </form>
+    </div>
+    <!-- <script src="./script/event1.js"></script> -->
+    <script src="./script/event2.js"></script>
+</body>
+</html>
