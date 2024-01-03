@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+    <style>
+        #chat {
+            background: #ffc6c9 ; border-radius: 10px;
+            width:400px; margin:100px auto 0  ; padding: 20px;
+        }
+        #chat .chat_list {
+            background: #FFE3E3; height: 500px; display: flex; flex-flow: column nowrap; overflow-y:auto ; border-radius: 30px; justify-content: flex-end;
+        }
+        #chat .chat_list ul {overflow-y:auto /*  필요할때만 y축에 스크롤 표시 */}
+        li { background-color: #ffc6b7; padding: 20px; background-size: 100%; list-style: none;
+            border: 1px solid #aaa; margin-bottom: 10px; border-radius: 20px; width: max-content;
+            
+        }
+        #chat .chat_send {
+            padding: 10px 0;
+            display: flex; justify-content: space-between;
+        }
+        #chat .chat_send #chat_txt {border:0; outline: none; width: 300px; border-radius: 40px;}
+        #chat .chat_send #send_btn {
+            border: 0; color:#000; background: #fffc6c;
+            cursor: pointer;  padding: 20px;
+            border-radius: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat">
+        <div class="chat_list"></div>
+            <div class="chat_send">
+                <input type="text" id="chat_txt" placeholder="여기에 입력하세요">
+                <button type="button" id="send_btn">보내기</button>
+            </div>
+    </div>
+    <script src="./script/chat.js"></script>
+</body>
+</html>
