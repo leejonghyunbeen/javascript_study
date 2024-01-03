@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관계 DOM</title>
+    <style>
+        main {}
+        main h1 {}
+        main .cart_num {}
+        main .cart_num span {}
+        main .cart {}
+        main .cart .item {
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            padding: 10px; margin-bottom: 10px;
+            display: flex; flex-flow: row nowrap;
+            justify-content: space-between ; align-items: center;
+        }
+        main .cart .item .photo {}
+        main .cart .item h2 {}
+        main .cart .item .price {}
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="#">logo</a></h1>
+        <nav>
+            <a href="#">menu1</a>
+            <a href="#">menu2</a>
+        </nav>
+    </header>
+    <main>
+        <h1>장바구니</h1>
+        <p class="cart_num">
+            <span class="select">1 /</span>
+            <span class="all"></span>
+        </p>
+        <section class="cart">
+            <div class="item">
+                <p class="photo">상품사진</p>
+                <h2>상품이름</h2>
+                <p class="price">14,500원</p>
+            </div>
+            <div class="item">
+                <p class="photo">상품사진</p>
+                <h2>상품이름</h2>
+                <p class="price">14,500원</p>
+            </div>
+            <div class="item">
+                <p class="photo">상품사진</p>
+                <h2>상품이름</h2>
+                <p class="price">14,500원</p>
+            </div>
+            <div class="item">
+                <p class="photo">상품사진</p>
+                <h2>상품이름</h2>
+                <p class="price">14,500원</p>
+            </div>
+        </section>
+    </main>
+    <footer>footer</footer>
+    <!-- <script src="./script/relationship.js"></script> -->
+    <!-- <script src="./script/relationship2.js"></script> -->
+    <script src="/script/relationship3.js"></script>
+</body>
+</html>

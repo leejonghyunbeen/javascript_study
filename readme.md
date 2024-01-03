@@ -71,3 +71,35 @@ ex)let age = Number(window.prompt('당신의 나이는?')) ;
 * 주의사항 ->value 속성은 form전용이므로 다른태그일때 해당 값을 알고 싶다면 다른속성 및 메서드를 사용해야 한다
 * 주의사항 -> `DOM.value`로 값 처리시 숫자를 쓰더라도 문자열 (string)으로 인식하기 때문에 필요한 경우
 `number()` 메서드를 활용해 (number)데이터 타입으로 변환해야 한다 `Number(객체.value())`
+## DOM 관계속성
+* toLocaleString -> 숫자에 단위마다 , 붙이기 ex) 10,000 이렇게 ->
+   계산을 마친 후 마지막 출력 경우에만 toLocaleString()사용한다
+   
+
+* 자식노드
+childNodes, children,childElementCount
+* 1.parentNode 부모 노드 , parentElement 부모요소
+    - parentNode.parentNode 연속사용 ( 부모의 부모 잡기)
+    - 자식 또는 자손노드 .parentElement (특정 자식의 부모 잡기)
+
+   다양하게 출력하는법
+   console.log(headerText)  //텍스트 노드 인덱스 출력
+   console.log(headerText[0]);//"header"
+   console.log(headerText[0].data);
+   console.log(headerText[0].length);//글자수
+   console.log(headerText[0].baseURI);// 경로
+2.  javascript 에서  css 제어하기 -> style 속성
+    DOM.관계.style
+    -DOM.관계.style = "속성:값; 속성:값 ; 속성:값;"  
+    *(위)style 2번이상 생성 시 이전 속성 :값 제거됨
+    -DOM.관계.관계.style.속성 = "값";
+    *(위)style 2번 이상 생성 시 기존 속성값에 이어서 추가됨
+    -DOM.style.속성 = "값"
+    -위 관계는 필요에 따라 선택 속성
+    24/1/3 자식노드 제어하기 
+   childNodes, children,childElementCount
+* 첫번째 자식, 마지막 자식 노드잡기
+   firstChild  -> 첫번째 자식 노드 공백포함
+   firstElementChild -> 첫번째자식 요소 노드
+   lastChild - > 마지막 자식 노드
+   lastElementChild - >마지막 자식 요소
