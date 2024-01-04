@@ -103,3 +103,18 @@ childNodes, children,childElementCount
    firstElementChild -> 첫번째자식 요소 노드
    lastChild - > 마지막 자식 노드
    lastElementChild - >마지막 자식 요소
+# 객체.innerHTML;
+*  `객체 .innerHTML;` 특정 객체의 자식,자손html 읽기
+*  `객체.innterHTML=값;`HTML 삽입 및 변경
+# innerText
+* `객체.innerTEXT;` 객체의 가식, 자손 텍스트 노드 읽기 (HTML x )
+* `객체.innerTEXT = 값;` 텍스트 노드 삽입 및 변경 (HTML x )
+# appendChild
+* `객체.appendChild()`
+* `객체.속성.appendChild()`
+* `객체.객체.appendChild()`
+* `객체.속성.속성.Child()`
+* 객체의 마지막 자식 노드 위치에 `()` 괄호 안 값 추가
+# createElement
+* `document.createElement()`
+* 요소 노드 자바스크립트 내에서 동적인 용도로 생성할 경우
