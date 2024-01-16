@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 연습</title>
+    <style>
+        /* 기본css */
+        .list{background: lightyellow;padding: 10px;}
+        .list li {border-bottom: 1px dashed tomato;}
+        /* js에 의해 추가 적용되는 class */
+        /* JS로 적용하는 클래스 생성시 클래스 이름은 태그나 요소 특징이 아닌 동적인 의미 및 그안에 CSS속성들의 특징으로 지어준다 */
+        .design_set1 {
+            color: blue; border-right:2px solid blue;
+            border-bottom: 3px solid hotpink !important;
+        }
+        .design_set2{   
+            background-color: aqua;
+            font-size: 2rem;}
+        .showhide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="design_add">add</button>
+    <button type="button" id="onoff">switch</button>
+    <ul class="list">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+        <li>list 5</li>
+        <li>list 5</li>
+    </ul>
+    <script src="./script/class1.js"></script>
+</body> 
+</html>

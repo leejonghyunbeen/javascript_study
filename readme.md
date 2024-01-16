@@ -105,7 +105,7 @@ childNodes, children,childElementCount
    lastElementChild - >마지막 자식 요소
 # 객체.innerHTML;
 *  `객체 .innerHTML;` 특정 객체의 자식,자손html 읽기
-*  `객체.innterHTML=값;`HTML 삽입 및 변경
+*  `객체.innterHTML=값;`HTML 삽입 및 변 경
 # innerText
 * `객체.innerTEXT;` 객체의 가식, 자손 텍스트 노드 읽기 (HTML x )
 * `객체.innerTEXT = 값;` 텍스트 노드 삽입 및 변경 (HTML x )
@@ -137,3 +137,15 @@ AND(&&) OR(||)NOT(!)
 - OR(||);양쪽 피연산자 중 하나라도 참이면 결과는 참
 - NOT(!):피연산자의 논리 값을 반전함, 참이면 거짓 반환
 * 논리연산자 우선순위 -> NOT>AND>OR
+## 스타일 우선순위
+* 인라인 > # > . > .T 
+## className 
+* class 만들기 중복사용시 복합대입 사용, 앞에공백넣기
+## classList.add (class)
+* 기본적으로 classNAME과 기능은 비슷하며 중복해서 사용이 가능하며 ,로 구분한다 
+* classList.remove()로 삭제가능
+## classList.toggle 
+* 스위치 처럼 추가 제가 기능 가능
+## !important -> 우선순위로 올린다.
+## classList.replace -> class바꾸기 (1,2) 이렇게 쓰면 1이 2가댐
+## constains→ 참 거짓으로 존재유무 확인                           
