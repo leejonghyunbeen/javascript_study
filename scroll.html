@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll</title>
+    <style>
+        html,body,.bg { scroll-behavior: smooth;}
+        * { margin: 0; padding: 0; box-sizing: border-box;}
+        .bg{
+            height: 100vh;
+        }
+        .bg1{
+            background-color: antiquewhite; position: relative;
+            width: 100%; overflow-x: auto; overflow-y: hidden;
+        }
+        .bg2{background-color: aqua;}
+        .bg3{background-color: blue;}
+        .bg4{background-color: blueviolet;}
+        #btn{
+            position: fixed; 
+            left: 50px ;
+            top: 50px; 
+            z-index: 999; 
+            padding: 20px;
+        }
+        /* --------------------------------------가로ㅓ스크롤  */
+        .bg1 button {position: fixed; top: 40%; transform:scale(2) ;}
+        .bg1 #prev {left: 50px;}
+        .bg1 #next {right: 50px;}
+        .bg1 .wrap {
+            width: max-content; display: flex;
+        }
+        .bg1 .wrap .box {width: 1400px; height: 100vh;}
+        .bg1 .wrap .a {background: #555;}
+        .bg1 .wrap .b {background: #777;}
+        .bg1 .wrap .c {background: #999;}
+        .bg1 .wrap .d {background: #bbb;}
+        #top { position: fixed; z-index: 999; bottom: 50px;right: 50px; padding: 30px;}
+        header {position: fixed; left: 0; top: 0; width: 100%; z-index: 999;}
+        header h1 {height: 50px; background: aqua;}
+        header nav {height: 30px;background: darkblue;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>로고</h1>
+        <nav>내비게이션</nav>
+    </header>
+    <button type="button" id="top">위로</button>
+    <button type="button" id="btn">버튼</button>
+    <div class="bg bg1">
+        <button type="button" id="prev">⬅</button>
+        <button type="button" id="next">➡</button>
+        <div class="wrap">
+            <div class="box a"></div>
+            <div class="box b"></div>
+            <div class="box c"></div>
+            <div class="box d"></div>
+        </div>
+    </div>
+    <div class="bg bg1"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="bg bg4"></div>
+    <script src="./script/scroll-2.js"></script>
+</body>
+</html>
