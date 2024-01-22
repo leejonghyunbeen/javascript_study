@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+    <style>
+        * {box-sizing: border-box;}
+        html,body {background-color: lightblue; height: 300vh;}
+        .chat_bot {
+            background-color: blueviolet; padding: 20px;
+            width: 100px; height: 100px; border-radius: 20px;
+            position: fixed; right: 50px; bottom: 50px; z-index: 999;
+        }
+        .chat_bot #robot {background: none; border: 0; cursor: pointer;}
+        .chat_bot #robot img {width: 100%;}
+        .chat_bot #robot span {color: #fff;
+            display: block; text-align: center;
+            font-weight: 700; font-size: 0.91rem;
+        }
+        /* 챗봇 클릭시 채팅화면 */
+        #chat_container {
+            background: #000;
+            width: 400px; height: 600px;
+            display: flex; flex-flow: column nowrap; padding: 20px;
+            border: 1px solid #ccc; border-radius: 20px;
+            position: fixed; right: 50px; bottom: 160px;
+        }
+        #chat_container #chat_message {
+            height: 500px; background: #000; border-radius: 10px;
+            padding: 20px;display: flex; flex-flow: column-reverse ;
+            align-items: center; justify-content: flex-start;
+            overflow-y: scroll; overflow-x: hidden;
+        }
+        #chat_container #chat_message .message {
+            background-color: #000; border-radius: 15px; padding:10px 5px;
+            color: violet;  flex-flow: column wrap; justify-content: flex-end; margin-bottom: 20px;
+        }
+        #chat_container #user_input{display: flex; flex-flow: row nowrap; justify-content: space-between;  overflow-y:auto;
+
+        }
+        #chat_container #user_input[name=user_text] {
+            width: calc(100% - 60px); border: 0; outline: none;
+        }
+        #chat_container #user_input #chat_btn {
+            background: #000; color: violet; 
+            width: 60px; height: 50px; border-radius: 30px; 
+        }
+        #chat_message {overflow: scroll;}
+        /* js */
+        .hide {display: none !important;}
+        .show {animation: chatshow 0.5s both;}
+        @keyframes chatshow {
+            0% {transform: translateY(10px); opacity: 0;}
+            100% {transform: translateY(0); opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <div class="chat_bot">
+        <button type="button" id="robot"><img src="./images/robot.png" alt=""></button>
+        <span>AI 상담</span>
+    </div>
+    <!-- chat_bot 클릭시 채팅화면 -->
+    <div id="chat_container">
+        <div id="chat_message">
+            <!-- <div id="message"></div>  -->
+        </div>
+        <div id="user_input">
+            <input type="text" name="user_text" placeholder="메세지를 입력하세요">
+            <button type="button" id="chat_btn">전송</button>
+        </div>
+    </div>
+    <script src="./script/chat_api.js"></script>
+</body>
+</html>
