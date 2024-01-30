@@ -1,0 +1,52 @@
+main {width: 100%;}
+main p {color: #fff;}
+main h2 {
+    color: #fff; font-size: 3rem;
+    padding-bottom: 20px;
+}
+
+main nav {
+    padding: 50px;
+    position: fixed;
+    display: flex;  flex-flow: row nowrap; justify-content: space-around;
+}
+main .logo {}
+main .menu { 
+    padding-left: 1500px;
+}
+main .menu a {color: #fff;}
+main .member a {color: #fff;}
+main nav p{bottom: 0;}
+main .first {
+    background-image: url(../images/main_bg_new2.jpg);
+    width: 100%; height: 100vh; background-size: cover; 
+    background-position: center; 
+    background-attachment:fixed ;
+}
+main .first h1{
+    text-align: center; font-size: 3rem; padding-top: 450px;
+    color: #fff;
+}
+main .second {
+    background-image: url(../images/main_con2_bg.jpg);
+    width: 100%; height: 100vh; background-size: cover; 
+    background-position: center; padding: 100px 100px 0;    
+    background-attachment:fixed ;
+}
+main .third {
+    background-image: url(../images/main_con3_bg.jpg);
+    width: 100%; height: 100vh; background-size: cover; 
+    background-position: center;padding: 100px 100px 0;
+    background-attachment:fixed ;
+}
+main .four {
+    background-image: url(../images/main_con5_bg-.jpg);
+    width: 100%; height: 100vh; background-size: cover; 
+    background-position: center;padding: 100px 100px 0;
+    background-attachment:fixed ;
+}
+footer {
+    background: #000; display: flex; justify-content: space-around;
+    padding: 20px 0;
+}
+footer p{color: #fff; padding-top: 30px;}

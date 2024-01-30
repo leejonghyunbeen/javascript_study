@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반얀트리 해운대 부산</title>
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/scroll2.css">
+</head>
+<body>
+    <main>
+        <nav>
+            <h1><a href="#" class="logo"><img src="./images/logo_w.png" alt=""></a></h1>
+            <p class="menu"><a href="#">MENU</a></p>
+            <!-- <P class="member"><a href="#">이너스 맴버 상담 예약</a></P> -->
+        </nav>
+        <div class="first bg">
+            <h1>BANYAN TREE HAEUNDAE BUSAN</h1>
+        </div>
+        <div class="second bg">
+            <h2>THE BEST SANCTUARY FOR THE SENSES</h2>
+            <p class="pp">최상의 모든 조건, 반얀트리를 빛내는 브랜드 컬렉션, 그 중에서도 반약트리(Banyan Tree)는<br>
+                명실상부한 럭셔리 호스피탈리티의 최상급 브랜드입니다.<br>
+                전세계의 가장 아름답고 장엄한 자연 속에서 누리는 지역 고유의 경험.<br>
+                최고의 휴양을 선사하는 반얀트리를 만나보십시오.</p>
+        </div>
+        <div class="third bg">
+            <h2>BANYAN TREE HAEUNDAE</h2>
+            <p class="pp">부산의 아름다운 오시리아, 그 곳 해변과 한 걸음.<br>
+                귀하께 2025년 반얀트리 해운대 부산의 탄생 소식을 전합니다.<br>
+                세계 곳곳에서 경험하던 반약트리의 휴식, 그 이상을 이제, 부산에서도 만나실 수 있습니다.</p>
+        </div>
+        <div class="four bg">
+            <h2>HOME IN THE PERFECT WORLD</h2>
+            <p class="pp">반얀트리는 22개 국가에 48개의 호텔과 리조트, 64개의 스파, 골프 코스 및 레지던스를 운영하는 글로벌 기업입니다.<br>
+                완벽한 안식처를 향한 멈추지 않는 반얀트리의 노력그것은 이미, 국제적 권위를 가진 2700여 개 이상의<br>
+                수상 경력이 증명하고 있습니다. 반얀트리 해운대 부산과 함께 세계 곳곳 이름 난 비경 속의 반얀트리를 만나십시오.<br>
+                지상 최고의 휴식을 선사하겠습니다.</p>
+        </div>
+        
+    </main>
+    <footer>
+        <img src="./images/logo_w.png" alt="#">
+        <p>COPYRIGHT © 2022 BANYAN TREE HAENDAEVUSAN. ALL RIGHTS RESERVED.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        // gsap.to('.first h1',{
+        //     scrollTrigger:'.first',
+        //     scale:0.9,
+        // })
+        const bg1 =document.querySelectorAll('.bg')
+        for(let i of bg1){
+            gsap.fromTo(i,{
+                backgroundSize: '120%'
+            },{
+                scrollTrigger:i.parentNode,
+                backgroundSize: '100%',
+                duration:2,
+            })
+        }
+        const texT =document.querySelectorAll('.first h1')
+        for(let i of texT){
+            gsap.fromTo(i,{
+                scale:0.9,
+            },{
+                scrollTrigger:i.parentNode,
+                scale:1,
+                duration:2,
+            })
+        }
+        const H1 =document.querySelectorAll('h2')
+        for(let i of H1){
+            gsap.fromTo(i,{
+                translateY:'120%',
+                opacity:0
+            },{
+                scrollTrigger:i.parentNode,
+                translateY:'-80%',
+                opacity:1,
+                duration:1,
+            })
+        }
+        const P1= document.querySelectorAll('.pp')
+        for(let i of P1){
+            gsap.fromTo(i,{
+                opacity:0,
+                translateY:'120%'
+            },{
+                scrollTrigger:i.parentNode,
+                opacity:1,
+                translateY:'-80%',
+                duration:2,
+            })
+        }
+    </script>
+</body>
+</html>

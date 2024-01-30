@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide-1</title>
+    <!--플러그인 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--플러그인 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        #mainSlide1 {
+            max-width: 1000px;
+            margin: 50px auto 0 ;  /* dirction:vertical설정 시  */
+            overflow: hidden;
+        }
+        .slide1,.slide2,.slide3{height: 500px; font-size: 5rem;}
+        .slide1 {background: aqua;}
+        .slide2 {background: lime;}
+        .slide3 {background: yellow;}
+        .page_bar {color: #00f; font-weight: 800; padding: 10px;}
+        /* 사용자 지정 page design 활성화는 정해진 이름을 사용해야한다 */
+        .swiper-pagination-bullet-active {color: #f00;}
+    </style>
+</head>
+<body>
+    <div class="swiper_container" id="mainSlide1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">슬라이드1</div>
+            <div class="swiper-slide slide2">슬라이드2</div>
+            <div class="swiper-slide slide3">슬라이드3</div>
+        </div>
+        <div class="swiper-pagination"></div> <!-- 페이지번호 표시용 -->
+        <div class="pagination_progress"></div> <!-- 페이지 로딩표시 -->
+        <div class="swiper-button-prev"></div><!-- 이전버튼 -->
+        <div class="swiper-button-next"></div><!-- 다음버튼 -->
+        <!-- 정지,재생버튼추가 -->
+        <div class="btn">
+            <button type="button" id="pause">일시정지</button>
+            <button type="button" id="start">다시시작</button>
+        </div>
+    </div>
+    <script>
+        const mySwiper =new Swiper ('#mainSlide1',{
+            //속성:값 ,속성:값,
+            autoplay:{delay:1000,},//자동재생 (기본값 flase)
+            loop:true,//반복(기본값 false)
+            // direction:'vertical',//방향(기본값 horizintal)
+            // effect:'fade', //재자리효과  (direction이랑 같이 못쓴다)
+            /* effect:'cube', */ //큐브 돌아가는 효과
+            /*   cubeEffect:{
+                shadow:true, //큐브 하단 그림자 안보일꺼면 flase
+                shadowOffset:10,//하단 그림자 Y위치 (기본값20)
+                shadowScale:1.5,//하단 그림자 크기 (기본값 1)
+                slideShadows:true//다음 큐브 그림자 유무 (기본값 false)
+            }, */
+            grabCursor:true,//마우스 올리면 손보양 아이콘
+            // effect:'flip',//뒤집히면서 넘어가는 이팩트
+            //페이지번호 표시하기 (HTML태그 먼저 준비 후 작성)
+            pagination:{
+                // el:'#mainSlide1 .pagination_progress',//적용대상
+                // type:'bullets', //모양설정
+                // type:'progressbar',//HTML별도준비
+                //페이지 모양을 자유롭게 변경하고 싶을 때
+                el:'#mainSlide1 .swiper-pagination',
+                type:'bullets', //여기까진 동일
+                clickabel:true, //사용자 모양 클릭 가능한 설정
+                renderBullet:function(i,name){
+                    //사용자 지정함수 생성
+                    console.log(i,name) //i는 인덱스,name은  pahe인식이름
+                    //return 에서 원하는 태그 구현
+                    return `<span class="page_bar ${name}">${i+1}</span>`
+                }
+            },//pagination 종료위치
+            //내비게이션 속성
+            navigation:{
+                nextEl:'#mainSlide1 .swiper-button-next',
+                prevEl:'#mainSlide1 .swiper-button-prev',
+            },
+            direction:'horizontal', /* 기본값으로 생략가능 */
+            slidesPerView:2, //한화면에 보이는 슬라이드 개수 
+            spaceBetween:10,//슬라이드 사이 공백
+        })
+        
+        //재생,정지 버튼으로 swiper 제어하기
+        const pause_btn = document.querySelector('#pause')
+        const start_btn = document.querySelector('#start')
+        pause_btn.addEventListener('click',()=>{
+            //정지하고 싶은 swiper을 가진 변수명 연결
+            mySwiper.autoplay.stop()
+        })
+        start_btn.addEventListener('click',()=>{
+            mySwiper.autoplay.start()
+        })
+        //mySwiper는 임의변수니까 다르게 써도 가능하지만 new Swiper는 지정하수니까 같이써야한다  그리고 괄화안에 swiper html 태그를 묶는 가장 바깥쪽 태그를 쓰는데 클래스명은 만약 같은 html에 swiper가 2개이상일떄 중복될 수 있기 떄문에 보통 가장 바깥쪽 부모에게 id를 개별로 주고 그 id를 개별로 주고 그id로 설정해서 한 html에서 두번이상 적용하게 만든다
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll-1</title>
+    <style>
+        .bg {
+            height: 800px; width: 100%; font-size: 10rem; color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+        h2 {color: black;}
+        .bg1 {background-image: url(https://images.unsplash.com/photo-1703028410154-b96ff1ee4db2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzN3x8fGVufDB8fHx8fA%3D%3D);}
+        .bg2 {background-image: url(https://images.unsplash.com/photo-1706158634402-7790851d177e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNjB8fHxlbnwwfHx8fHw%3D);}
+        .bg3 {background-image: url(https://images.unsplash.com/photo-1706285644467-45769812f872?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2N3x8fGVufDB8fHx8fA%3D%3D);}
+        .bg4 {background-image: url(https://images.unsplash.com/photo-1706119624235-7302d4320c81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMzJ8fHxlbnwwfHx8fHw%3D);}
+
+        .design1 {
+            font-weight: 800; color: #f00 !important;
+            transform: scale(1.2) translateX(100px); 
+        }
+    </style>
+</head>
+<body>
+    <h1>scrollTrugger-javascript plugin</h1>
+    <dl>
+        <dt>스크롤 트리거란?</dt>
+        <dd>javascript window.scroll,offsetTop,getBoundingClientRect 등의 스크롤 함수를 이용한 동적 애니메이션을 쉽게 만들 수 있게 제작된 자바스크립트 플러그인 종류중 하나이다</dd>
+        <dd>사용하기 위해서는 관련 CDN을 반드시 연결하고 이용해야한다</dd>
+    </dl>
+    <div class="bg bg1"><h2>2</h2></div>
+    <div class="bg bg2"><h2>2</h2></div>
+    <div class="bg bg3"><h2>3</h2></div>
+    <div class="bg bg4"><h2>4</h2></div>
+    <!-- 스크롤 트리거 CDN(필수연결) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        //scrollTriger 기본문법
+        //gsap.to('적용대상',{scrollTrigger:'뷰포트대상',애니메이션속성:값,속성:값})
+        // gsap.to('.bg2',{
+        //     scrollTrigger:'.bg2',
+        //     duration:2,
+        //     x:300,
+        //     y:100,
+        //     opacity:0.5,
+        //     scale:0.9,
+        //     rotation:199 ,
+        // })
+        // gsap.to('.bg1',{
+        //     scrollTrigger:'.bg1',
+        //     x:500,
+        //     y:300,
+        //     scale:1.2,
+        //     rotation:2000,
+        // })
+        //scrollTrigger 기본문법2. 시작과 끝 설정
+        //gsap.fromTo('적용대상',{from시작속성:값},{To끝속성:값})
+        //scrollTrigger속성은 To에 들어간다
+        // gsap.fromTo('.bg2 h2',{
+        //     opactiy:0,
+        //     x:500
+        // },{
+        //     scrollTrigger:'.bg2',
+        //     duration:1,
+        //     opactiy:1,
+        //     delay:1,
+        //     x:200
+        // })
+        const bg_h2 =document.querySelectorAll('.bg h2')
+        console.log(bg_h2)
+/*         for(let i of bg_h2){
+            gsap.to(i,{
+                scrollTrigger:i.parentNode,
+                duration:1,
+                delay:0.5,
+                opacity:0.5,
+                x:300
+            })
+        } *//* 
+        for(let i of bg_h2){
+            gsap.fromTo(i,{
+                opacity:0,
+            },{
+                scrollTrigger:i.parentNode,
+                duration:2,
+                opacity:1,
+            })
+        } */
+        //scrollTrigger 기본문법 3, 자바스크립트와 다양한 연동법
+        //ScrollTrigger.create({trigger:'대상',속성:값,속성:값})
+        /* ScrollTrigger.create({
+            trigger:'.bg2 h2',
+            duration:1,
+            start:'0 30%',
+            markers:true,
+            onEnter:()=>bg_h2[1].classList.add('.design1')
+        }) */
+        ScrollTrigger.create({
+            trigger:'.bg h2',
+            duration:1,
+            start:'0 30%',
+            markers:true,
+            onEnter:()=>bg_h2[1].classList.add('design1')
+        })
+    </script>
+</body>
+</html>

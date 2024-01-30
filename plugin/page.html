@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./jquery.fullPage.css">
+    <style>
+        .wrap {}
+        .wrap .container {}
+        .wrap .container:nth-child(1){background: aqua;}
+        .wrap .container:nth-child(2){background: tomato;}
+        .wrap .container:nth-child(3){
+            height: 500px !important;background: lime; 
+        }
+        .wrap .container:nth-child(4){background: yellow;}
+        nav {
+            position: fixed; letf:50px ; top: 50px;  z-index: 999;
+        }
+        nav a {}
+        .bg {animation: bg 2s ease both;}
+        @keyframes  bg {
+            0%{transform: translateX(0);}
+            100%{transform:translateX(200px) ;}
+        }
+        </style>
+</head>
+<body>
+    <nav>
+        <a href="#a">a</a>
+        <a href="#b">b</a>
+        <a href="#c">c</a>
+        <a href="#d">d</a>
+    </nav>
+    <div class="wrap">
+        <div class="container section s1">1</div>
+        <div class="container section s2">2</div>
+        <div class="container section s3 fp-auto-height" >3</div>
+        <div class="container section s4">4</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./jquery.fullPage.js"></script>
+    <script>
+        $('.wrap').fullpage({
+            //속성 :값 , 속성 :값,
+            scrollBar:true, //스크롤 바 표시하기
+            scrollingSpeed:500, //스크롤바 전환속도 /* 기본값 1000 */
+            navigation:true, //우측 내비게이션 표시
+            navigationTooltips:['아무말','제목','title','가나다'],  //네비에 마우스 올리면 제목표시
+            showActiveTooltip:true, //자동으로 제목 표시
+            menu:'nav', //상단메뉴 클릭시 헤당 메뉴 위치로 이동
+            anchors:['a','b','c','d'], //메뉴a #이름과 일치시킨 이름작성
+            //스크롤 애니메이션 등장이 필요할 경우
+            //제이쿼리는 화살표함수가 불가능하기 떄문에 모두 function 함수를 쓴다
+            // //매개변수 index,nextIndex,direction은  이름지정 자유
+            // // 매개변수 이름을 저렇게 쓴건 그냥 의미전달을 위해서고 실제로는 i,n,d라고 써도 무관하다 매개변수 index,nextindex,direction은 순서대로 현재인덱스,다음인덱스,화면방향을 뜻한다
+            // onLeave:function(index,nextIndex,direction){
+            //     console.log(index,nextIndex,direction)
+            //     if(index ==1 ){
+            //         $('.s2').css('background-color','red') //디자인 변경하기 ,제이쿼리 css
+            //         $('.s2').get(0).style.border = '5px solid black' //자바스크립트 css
+            //     }
+            //     if(index == 2 ){
+            //         $('.s3').get(0).classList.add('bg')
+            //     }else{
+            //         $('.s3').get(0).classList.remove('bg')
+            //     }
+            // }
+            afterLoad:function(anchor,index){ //매개변수명칭은 자유지정
+                console.log(anchor,index)//확인
+                if(anchor =='b'){//앵커의 위치가 b와 같으면
+                    $('.s2').get(0).classList.add('bg')
+                }else{
+                    $('.s2').get(0).classList.remove('bg')
+                }
+            }
+        })
+
+
+    </script>
+</body>
+</html>

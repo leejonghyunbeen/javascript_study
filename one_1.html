@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>one_1</title>
+    <style>
+        * {
+            margin: 0; padding: 0 ;box-sizing: border-box;
+        }
+        .wrap {
+            height: 100vh;
+            position: relative; top: 0;
+            transition: all 0.3s;
+        }
+        .container {
+            font-size: 5rem; text-align: center;
+            height: 100vh;
+        }
+        .container:nth-child(1) {
+            background: aqua;
+        }
+        .container h1 {
+            transition: all 3s; 
+        }
+        .container:nth-child(2) {background: yellow;}
+        .container:nth-child(3) {background: green;}
+        .container:nth-child(4) {background: red;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">1</div>
+        <div class="container"><h1>2</h1></div>
+        <div class="container"><h1>3</h1></div>
+        <div class="container"><h1>4</h1></div>
+    </div>
+    <script>
+        const wrap = document.querySelector('.wrap')
+        const container =document.querySelectorAll('.container')
+        let page = 0
+        window.addEventListener('wheel',(e)=>{
+            e.preventDefault()//새로고침 막기
+            console.log(e.deltaY)
+            // page++
+            // wrap.style.top = `${page*-100}vh`
+            // console.log(`${page*-100}vh`)
+            if(e.deltaY > 0) {page++}
+            if(e.deltaY < 0) {page--}
+            if(page > container.length-1){
+                page=container.length-1
+            }
+            if(page < 0){page=0} /* 감소한값 제한 */
+            wrap.style.top = `${page*-100}vh`
+            console.log(`${page*-100}vh`)
+            // 스크롤 애니메이션 추가 동작 작성위치
+            for(let i of container){ //모든 container 에 접근하기
+                console.log(i.offsetTop)//모든 container 위치확인
+                if(i.offsetTop >= container[1].offsetTop){ // 모든container의 위치중 두번쨰 container 의 위치와 같을때
+                    // 두번째 container 의 첫번째 자식h1의 글자 색 변경하기
+                    container[1].children[0].style.color='#f00'
+                }
+                if(i.offsetTop >= container[2].offsetTop){
+                    container[2].children[0].style.color='#ffc6c9'
+                }
+                if(i.offsetTop >= container[3].offsetTop){
+                    container[3].children[0].style.color='#ff1'
+                }
+            }
+        },{passive:false})//이전스크롤 기다리지않기
+    </script>
+</body>
+</html>
