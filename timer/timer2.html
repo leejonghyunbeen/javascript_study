@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer2</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        .slider_wrap {
+            width: 500px; border: 5px solid black;
+            margin: 50px auto 0; 
+        }
+        .slider_wrap .slide_container {
+            position: relative;
+        }
+        .slider_wrap .slide_container .slide{
+            width: 500px; height: 350px; font-size: 5rem;
+            position: absolute; left: 0; top: 0; opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .slider_wrap .slide_container .slide1{
+            background: tomato;  opacity: 1;
+        }
+        .slider_wrap .slide_container .slide2{background: aqua;}
+        .slider_wrap .slide_container .slide3{background: violet;}
+        .slide_transiton{transition: 0.5s;}
+    </style>
+</head>
+<body>
+    <div class="slider_wrap">
+        <div class="slide_container">
+            <div class="slide slide1">1</div>
+            <div class="slide slide2">2</div>
+            <div class="slide slide3">3</div>
+        </div>
+    </div>
+    <button type="button" id="pause">일시정지</button>
+    <button type="button" id="play">재생</button>
+    <script>
+        const slide_container = document .querySelector('.slide_container')
+        const slides = document.querySelectorAll('.slide')
+        let num = 0
+        //1->2->3(if)-> 0(반복)
+        let timer =setInterval(slide_timer,3000)
+        function slide_timer(){        
+            num++ /* 1씩 추가시키기 */
+            if(num>=slides.length){  //if 만약 num이 slide 의 갯수보다 높다면
+                for(let i of slides){i.style.opacity=0} //스타일 0
+                num =0     //0으로 돌리기
+            }
+            console.log(num)
+            slides[num].style.opacity = 1 //num만 보이기
+        }
+    </script>
+</body>
+</html>

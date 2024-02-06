@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer3</title>
+    <style>
+        html,body{height: 300vh}
+    </style>
+</head>
+<body>
+    <p><span class="time">5</span>초 후 메인으로 이동합니당근마켓</p>
+    <script>
+        //setTimeout 일정 시간 후 한번 실행하고 끝나는 타이머
+        let num = 0
+        let timer1 =setTimeout(setTimer,3000)
+        function setTimer(){
+            num++
+            console.log(num)
+        }
+
+        //새로고침 시 스크롤 위로
+        let timer2 = setTimeout(function(){
+            window.scrollTo(0,0)
+        },100)
+        //포트폴리오 로딩화면
+        let timer3 = setTimeout(portfolioTimer,5000)
+        function portfolioTimer(){
+            window.location = 'https://www.daangn.com/'
+
+        }
+        const timeSpan=document.querySelector('.time')
+        let timeSpanValue= 5
+        let timer4 =setInterval(function(){
+            timeSpanValue--
+            timeSpan.innerHTML = timeSpanValue
+        },1000)
+    </script>
+</body>
+</html>

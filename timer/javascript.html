@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascrips개념+타이머</title>
+</head>
+<body>
+    <h1>자바스크립트의 동작 이해</h1>
+    <dl>
+        <dt>stack</dt>
+        <dd>스택이란 실행내용을 담고 있는 자료구조</dd>
+        <dd>싱글쓰레드로 동작하며 함수 호출을 관리한다 </dd>
+        <dd>동기적&절차적으로 함수의 내용을 스택에서 처리하고 처리한 내용은 스택에서        제거한다</dd>
+        <dt>Heap</dt>
+        <dd>자료저장공간(변수,객체,배열)</dd>
+        <dt>Que</dt>
+        <dd>비동기작업을 일시적으로 저장하는 장소</dd>
+        <dd>비동기 호출이 일어났을 때 동기순서를 무시하고 stack에 들어가서 처리된다.</dd>
+    </dl>
+    <script>
+
+        //stack 이해하기
+        // function func1(x,y){
+        //     return x*y
+        // }
+        // function func2(x){
+        //     let s =func1(x,x)
+        //     console.log(s)
+        // }
+        // func2(5)
+
+        //비동기 Que 활용 1. 콜백함수 (callback funtions)
+        // 트겅 작업이 완료될때까지 기다리지 않고 다음코드를 실행하는 함수
+        //네트워크 요청, 파일 읽기, 타이머,이벤트등등
+        //비동기 처리 -> 콜백함수,Promise,ECMA6 async/await
+
+        //콜백함수란? 
+        //함수의 매개변수로 전달되어 필요할 때 호출되는 함수개념
+        //콜백은 콜백에서 콜백 쌓아서 부르는게 가능하기 때문에 코드가 자칫 복잡해질 수 있어서 콜맥헬 (callback hell)이란 별명을 가지고 있다.
+
+        // function func1 (call){
+        //     setTimeout(()=>
+        //     {
+        //         console.log('A')
+        //     },1000)
+        //     setTimeout(()=>{
+        //         console.log('C')
+        //     },500)
+        //     call()
+        // }
+        // function func2(){
+        //     console.log('B')
+        // }
+        // func1(()=>{func2()}) // claaback functions 
+        
+        //비동기 Que활용2, 프로미즈(Promise)ES6
+        /* 
+        프로미즈는 서버에서 받아온 JSON,DB,API등의 코드를 수행하는 JS
+        대기(pending) 이행(fulfilled) 실패 *(rehected)
+
+        이행(제한x 1,2 ~계속 필요한만큼 선언) - > then
+        실패(1번) - > catch
+        
+        프로미즈는 비동기 작업의 성광과 실패를 나타내는 객체이다.
+        */
+        /*     function func1 (){
+                return new Promise((a,b)=>{
+                    setTimeout(()=>{
+                        console.log('A')
+                        a()
+                    },2000)
+                })
+            }
+            function func2(){
+                console.log('B')
+            }
+            func1()
+                .then(()=>{func2()})
+                .catch(error=>{
+                    console.error('에러는',error.message)
+                }) */
+            //비동기 Que3. async,await
+            //코드의 가독성과 유지보수성 향상에 도움을 주는 JS
+            //async 비동기 함수임을 선언한다. ex) async function
+            //await 키워드 "Promise" 완료될때까지 대기하는 대기상태(pending) 동안 일시정지 하게 만들어주는 유지보수 향상에 도움주는 JS
+            //await 안적을 시 promise 대기상태동안 비동기가 처리될 준비가 됐는지 자바스크립트가 계속 확인하기 떄문에 stack 작업의 속도가 떨어질수 있다 그래서 잠시 일시정지를  await 시켜서 유지보수성을 향상시킨다.
+/*             async function func1 (){
+                return Promise.resolve(1);
+            }
+            func1()
+                .then(console.log)
+                .catch(error=>{console.log('error:',error.message)}) */
+            //예제 2
+                async function func1(){
+                    let pro = new Promise((a)=>{
+                        setTimeout(()=>{
+                            console.log('A')
+                        },3000)
+                        a()
+                    })
+                    let result = await pro;
+                }
+                function fun2 (){
+                    console.log('하하')
+                }
+                function fun3 (){
+                    console.log('호호')
+                }
+                func1()
+                    .then(()=>{fun2()})
+                    .then(()=>{fun3()})
+                    .catch(Error=>{
+                        console.error('error',error.message)
+                    })
+    </script>
+</body>
+</html>

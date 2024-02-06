@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daka</title>
+</head>
+<body>
+    <h1>data.Json 데이터가져오기</h1>
+    <script>
+
+        async function showData(){
+            let a =await fetch('./data.json')
+            let b = await a.json()
+            console.log(a)
+            console.log(b)
+            async function datas(){
+                console.log(`이름은:`,b.name)
+                console.log(`나이는:`,b.age)
+                console.log(`취미는:`,b.hobby.join(','))
+                console.log(`국가도시:`,b.address.city)
+                console.log(`우편번호:`,b.address.postcode)
+            }
+            datas()
+        }
+        showData()
+    </script>
+</body>
+</html>

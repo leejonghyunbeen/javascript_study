@@ -1,0 +1,9 @@
+{
+    "name":"kim",
+    "age":"20",
+    "hobby":["movie","coding"],
+    "address":{
+        "city":"korean seoul",
+        "postcode":"123456"
+    }
+}
