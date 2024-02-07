@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filltet-1</title>
+</head>
+<body>
+    <button type="button" id="btn">정렬하기</button>
+    <p id="result"></p>
+
+    <script src="./shopping.js"></script>
+    <script>
+
+        const btn = document.querySelector('#btn')
+        const result = document.querySelector('#result')
+        let asccendingOrder
+        let descendingOrder
+
+        btn.addEventListener('click',()=>{
+            // asccendingOrder = shopping_data.slice().sort((a,b)=>a.price - b.price)
+            descendingOrder = shopping_data.slice().sort((a,b)=> b.price - a.price  )
+            console.log(asccendingOrder)
+            for(let i of descendingOrder){
+                result.innerHTML += `상품명:${i.name}<br> 가격:${i.price}<br> 색상:${i.color}<br>`
+            }
+        })
+
+        //sort()배열 정렬,slice() 배열의 복사본을 생성해서 원하는 구조로 출력
+        const data_test= [3000,4000,5000,2000,1000]
+        console.log(data_test)
+        console.log(data_test.sort())
+
+        console.log(data_test.sort((a,b)=>{
+            return a - b
+        }))
+        //sort 배열알고리즘이 인식하는 매개변수 처리식 
+        /* 
+        a-b 결과가 0 이라면 순서는 변경되지 않는다.(오름차순)
+        b-a 내림차순 정렬 (양수와 음수가 서로 변경되기 떄문에)
+        내림차순(descending): C->B->A
+        오름차순(ascending): A->B->C
+         */
+
+    </script>
+</body>
+</html>

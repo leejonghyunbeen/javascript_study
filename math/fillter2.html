@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn">정렬하기</button>
+    <p id="result"></p>
+    <script src="./shopping.js"></script>
+    <script>
+        const btn = document.querySelector('#btn')
+        const result = document.querySelector('#result')
+        let colorFilter 
+        btn.addEventListener('click',()=>{
+            colorFilter = shopping_data.filter((a)=>a.color ==='black')
+            console.log(colorFilter)
+            for(let i of colorFilter){
+                result.innerHTML += `${i.name}<br>${i.price}<br>${i.color}<hr>`
+            }
+        })
+
+        //특정 배열에 들어있는 값중 일치하는 값만 가져오기
+        //배열.filter((매개변수)=>매개변수를 이용한 비교연산자 )
+        const data_test = [3000,5000,3000,4000,1000]
+        console.log(data_test.filter((a)=>a ===3000))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="txt" id="txt">
+    <input type="number" name="num" id="num" value="1">
+    <button type="button" id="btn">click</button>
+    <p class="result"></p>
+    <script src="./data.js"></script>
+    <script>
+
+        const txt =document.querySelector('#txt')
+        const num = document.querySelector('#num')
+        const btn = document.querySelector('#btn')
+        const result = document.querySelector('.result')
+        let min_result
+
+        
+        btn.addEventListener('click',()=>{
+            min_result =Math.max(data[0].price,data[1].price,data[2].price)
+            
+            for(let i of data){
+                console.log(i )
+                if(i.price == min_result){
+                    result.innerHTML = i.name + i.price + '원'
+                }
+            }
+            // txt.value = Math.min(1,10,-100) //가장 작은수 나타냄
+            // num.value = Math.min(1,2,3,4,5)
+            // txt.value = Math.abs(-1.5) //무조건 양수로 변경해서 나타냄
+            // num.value = Math.abs(-10)
+            // txt.value = Math.round(123.356)  //소수점 반올림해서 정수로 나타냄
+            // num.value = Math.round(123.256)
+            // txt.value = Math.ceil(123.456)  //소수점 무조건 올림해서 정수로 나타냄
+            // num.value = Math.ceil(1.1)
+            // txt.value=Math.floor(Math.random()*5) //소수점버리고 점수출력
+            // num.value=Math.floor(Math.random()*10) 
+            // txt.value = Math.random() //0~1사이에 소수값 출력
+            // num.value = Math.random() 
+            // txt.value = Math.PI  //3.14 파이값을 출력
+            // num.value=Math.PI
+        })
+    </script>
+</body>
+</html>
